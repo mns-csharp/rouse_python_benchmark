@@ -1,6 +1,18 @@
 # Rouse MC Performance Benchmark — Migacz Multistep vs Conventional
 
-## TL;DR
+## Artifacts in this directory
+
+- `bench_timings.tsv` — raw per-cell wall-clock and acceptance rates
+  (12 rows). Authoritative source for every number in this document.
+- `speedup_summary.tsv` — derived speedups and log-log scaling
+  slopes. Regenerated from `bench_timings.tsv` by `BenchAnalyzer.run()`.
+- `benchmark.log` — Python logging stream for the run, one line per
+  event, tagged with `[BENCH-*]` prefixes.
+- `bench_speedup_heatmap.png`, `bench_scaling_multistep.png`,
+  `bench_scaling_conventional.png` — plots embedded above.
+
+
+## Summary
 
 On an NVIDIA RTX 4070, the Migacz rank-1 batched-multistep MC scheme
 runs **3.1×–3.5× faster** than sequential single-trial Metropolis on
@@ -169,15 +181,4 @@ faster; red = conventional faster.
   `bench_timings.tsv::total_wall_s` is the authoritative source for
   any comparison.
 
-## Artifacts in this directory
 
-- `bench_timings.tsv` — raw per-cell wall-clock and acceptance rates
-  (12 rows). Authoritative source for every number in this document.
-- `speedup_summary.tsv` — derived speedups and log-log scaling
-  slopes. Regenerated from `bench_timings.tsv` by `BenchAnalyzer.run()`.
-- `benchmark.log` — Python logging stream for the run, one line per
-  event, tagged with `[BENCH-*]` prefixes.
-- `bench_speedup_heatmap.png`, `bench_scaling_multistep.png`,
-  `bench_scaling_conventional.png` — plots embedded above.
-- `_cleanup_receipt.txt` — pre-run artifact cleanup receipt
-  (disposable).
